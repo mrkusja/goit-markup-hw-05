@@ -198,7 +198,6 @@ ol {
 
  .header-contacts-list-icon {
      margin-right: 10px;
-     /* fill: var(--header-contacts-color); */
      fill: currentColor;
  }
 
@@ -320,6 +319,7 @@ max-width: 1600px;
  }
 
  .about-cards {
+    position: relative;
     flex-basis: calc((100% - 60px) / 3);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
  }
@@ -345,6 +345,38 @@ max-width: 1600px;
     letter-spacing: 0.03em;
     color: var(--sections-titles-color);
 }
+
+
+
+
+
+.about-projects {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 370px;
+    background-color: rgba(47, 48, 58, 0.8);
+    opacity: 1;
+}
+
+.about-projects-title {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+
+
+
+
+
  /* ===============OUR TEAM=============== */
 .team {
     background-color: var(--our-team-background-color);
@@ -581,6 +613,52 @@ max-width: 1600px;
 .footer-social-list-link:focus {
     background-color: var(--accent-color);
 }
+
+
+
+
+ /* ===============MODAL=============== */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+    background-color: #FFFFFF;
+
+}
+
+.modal-btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 30px;
+    height: 30px;
+
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.modal-btn-close-icon {
+    fill: #000000;
+}
+
 
 
 
