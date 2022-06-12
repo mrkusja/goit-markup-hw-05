@@ -125,8 +125,6 @@ ol {
 
 /* ===============HEADER=============== */
 .header {
-    padding-top: 25px;
-    padding-bottom: 25px;
     background-color: var(--header-background-color);
     border-bottom: 1px solid var(--header-border-color);
 
@@ -165,12 +163,31 @@ ol {
     margin-right: 50px;
 }
 
+.current {
+    position: relative;
+}
+
+.current::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+}
+
 .menu-link {
+    display: block;
+    padding: 32px 0;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--header-menu-link-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
 .menu-link:hover,
@@ -189,12 +206,13 @@ ol {
     line-height: 1.14;
     letter-spacing: 0.02em;
     color: var(--header-contacts-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
   .header-contacts-link {
      display: flex;
      align-items: center;
- }
+    }
 
  .header-contacts-list-icon {
      margin-right: 10px;
@@ -249,14 +267,16 @@ max-width: 1600px;
     align-items: center;
     text-align: center;
     letter-spacing: 0.06em;
-    color: var(--modal-btn-text-color);
-    background-color: var(--accent-color);
     cursor: pointer;
     min-width: 200px;
     padding: 10px 30px;
     border: none;
     border-radius: 4px;
     margin: 0 auto;
+    color: var(--modal-btn-text-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-btn:hover,
@@ -346,17 +366,12 @@ max-width: 1600px;
     color: var(--sections-titles-color);
 }
 
-
-
-
-
 .about-projects {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 370px;
     background-color: rgba(47, 48, 58, 0.8);
-    opacity: 1;
 }
 
 .about-projects-title {
@@ -371,11 +386,6 @@ max-width: 1600px;
     text-transform: uppercase;
     color: #FFFFFF;
 }
-
-
-
-
-
 
  /* ===============OUR TEAM=============== */
 .team {
@@ -454,6 +464,7 @@ max-width: 1600px;
     height: 44px;
     border-radius: 50%;
     background-color: var(--our-team-cards-background-color);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-item:not(:last-child) {
@@ -462,6 +473,7 @@ max-width: 1600px;
 
 .social-list-icon {
     fill: var(--icon-fill);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .social-list-link:hover .social-list-icon,
@@ -501,6 +513,8 @@ max-width: 1600px;
     border-radius: 4px;
     background-color: var(--our-team-cards-background-color);
     color: #AFB1B8;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-link:hover,
@@ -555,6 +569,7 @@ max-width: 1600px;
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: var(--footer-text-adress-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
  .footer-mail,
@@ -564,6 +579,7 @@ max-width: 1600px;
     line-height: 1.71;
     letter-spacing: 0.03em;
     color: var(--footer-text-contacts-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
  .footer-maps:hover,
@@ -607,15 +623,13 @@ max-width: 1600px;
     height: 44px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-list-link:hover,
 .footer-social-list-link:focus {
     background-color: var(--accent-color);
 }
-
-
-
 
  /* ===============MODAL=============== */
 .backdrop {
@@ -625,10 +639,13 @@ max-width: 1600px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 }
 
@@ -645,22 +662,23 @@ max-width: 1600px;
 
 .modal-btn-close {
     position: absolute;
-    top: 0;
-    right: 0;
-
+    top: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30px;
     height: 30px;
-
-    background-color: #fff;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .modal-btn-close-icon {
     fill: #000000;
 }
-
-
-
 
  /* ===============PORTFOLIO=============== */
   .portfolio-menu-btn {
@@ -676,6 +694,9 @@ max-width: 1600px;
     padding: 5px 20px;
     border: none;
     border-radius: 4px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
  .container-btm {
@@ -744,11 +765,40 @@ max-width: 1600px;
  .portfolio-list-link {
      display: block;
      text-decoration: none;
+     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 
  .portfolio-list-link:hover,
  .portfolio-list-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+ }
+
+ .portfolio-project-wrapper {
+     position: relative;
+     overflow: hidden;
+ }
+
+ .portfolio-project-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     font-family: var(--primary-font);
+     font-size: 18px;
+     line-height: 1.56;
+     letter-spacing: 0.03em;
+     padding: 63px 24px;
+     overflow: auto;
+     color: #FFFFFF;
+     background-color: rgba(33, 150, 243, 0.9);
+     transform: translateY(100%);
+     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ }
+
+ .portfolio-list-link:hover .portfolio-project-overlay,
+ .portfolio-list-link:focus .portfolio-project-overlay {
+     transform: translateY(0%);
  }
 
 
